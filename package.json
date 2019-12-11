@@ -1,0 +1,72 @@
+{
+  "name": "dotenv-cra",
+  "version": "0.0.0",
+  "description": "Create React App style dotenv support for Node projects.",
+  "author": "Dan Dombrowski <djdmbrwsk@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "dotenv",
+    "env",
+    ".env",
+    "environment",
+    "variables",
+    "config",
+    "settings",
+    "dotenv-expand",
+    "expand",
+    "cra",
+    "create-react-app",
+    "node",
+    "node.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djdmbrwsk/dotenv-cra.git"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "main": "build/main.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "dotenv-expand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.12",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.3",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf ./build",
+    "format": "prettier --write \"**/*.{md,js,json,ts,yaml,yml}\"",
+    "lint": "eslint --max-warnings 0 \"{src,test}/**/*.ts\"",
+    "test": "jest --verbose --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{md,js,json,ts,yaml,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "{src,test}/**/*.ts": [
+      "eslint --fix --max-warnings 0",
+      "git add"
+    ]
+  }
+}

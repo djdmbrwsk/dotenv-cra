@@ -1,0 +1,10 @@
+{
+  "editor.rulers": [80],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "jest.debugCodeLens.showWhenTestStateIn": ["fail", "unknown", "pass"]
+}
