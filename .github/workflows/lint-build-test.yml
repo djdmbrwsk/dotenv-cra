@@ -5,6 +5,7 @@ on: [push]
 jobs:
   lint:
     name: Lint with Node 12
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -14,6 +15,7 @@ jobs:
       - run: npm run lint
   build:
     name: Build with Node 12
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
