@@ -34,8 +34,9 @@ jobs:
         with:
           node-version: 12.x
       - run: npm ci
-      with:
-        node-version: ${{ matrix.node_version }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
       - run: npm test
         env:
           CI: true
