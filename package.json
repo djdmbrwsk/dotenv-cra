@@ -27,6 +27,9 @@
     "node": ">=8"
   },
   "main": "build/main.js",
+  "files": [
+    "build"
+  ],
   "dependencies": {
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0"
