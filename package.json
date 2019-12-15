@@ -1,6 +1,6 @@
 {
   "name": "dotenv-cra",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Create React App style dotenv support for Node projects.",
   "author": "Dan Dombrowski <djdmbrwsk@gmail.com>",
   "license": "MIT",
