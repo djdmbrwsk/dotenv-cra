@@ -1,5 +1,5 @@
 import { existsSync } from 'fs';
-import { resolve } from 'path';
+import { basename, resolve } from 'path';
 
 import {
   config as dotenvConfig,
@@ -36,13 +36,15 @@ export function config(options?: DotenvCraOptions): DotenvConfigOutput {
     dotenvPath,
   ];
 
-  // TODO: Add some debug console.log() calls
-
   // Reference:
   // https://github.com/facebook/create-react-app/blob/8b7b819b4b9e6ba457e011e92e33266690e26957/packages/react-scripts/config/env.js#L36-L49
   let parsed: { [name: string]: string } = {};
   for (const dotenvFile of dotenvFiles) {
     if (dotenvFile && existsSync(dotenvFile)) {
+      if (options?.debug) {
+        log(`loading \`${basename(dotenvFile)}\``);
+      }
+
       const result = dotenvExpand(
         dotenvConfig({
           debug: options?.debug,
@@ -50,6 +52,7 @@ export function config(options?: DotenvCraOptions): DotenvConfigOutput {
           path: dotenvFile,
         }),
       );
+
       if (result.error) {
         return result;
       }
@@ -59,4 +62,8 @@ export function config(options?: DotenvCraOptions): DotenvConfigOutput {
   return {
     parsed,
   };
+}
+
+function log(message: string): void {
+  console.log(`[dotenv-cra][DEBUG] ${message}`);
 }

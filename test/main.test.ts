@@ -43,7 +43,7 @@ test('should error if NODE_ENV not set', () => {
   );
 });
 
-test('should allow override of NODE_ENV when supplied in options', () => {
+test('should allow override of NODE_ENV when `env` supplied in options', () => {
   process.env.NODE_ENV = 'development';
   jest.spyOn(fs, 'existsSync').mockReturnValue(true);
   const dotenvConfigSpy = jest
@@ -56,7 +56,7 @@ test('should allow override of NODE_ENV when supplied in options', () => {
   expect(firstCallPath?.endsWith('.env.staging.local')).toEqual(true);
 });
 
-test('should allow custom .env path when supplied in options', () => {
+test('should allow custom .env path when `path` supplied in options', () => {
   jest.spyOn(fs, 'existsSync').mockReturnValue(true);
   const dotenvConfigSpy = jest
     .spyOn(dotenv, 'config')
@@ -66,6 +66,28 @@ test('should allow custom .env path when supplied in options', () => {
   expect(dotenvConfigSpy).toBeCalled();
   const firstCallPath = dotenvConfigSpy.mock.calls[0][0]?.path;
   expect(firstCallPath?.startsWith('/foo/bar/')).toEqual(true);
+});
+
+test('should log files loaded when `debug` supplied in options', () => {
+  process.env.NODE_ENV = 'development';
+  jest.spyOn(fs, 'existsSync').mockReturnValue(true);
+  jest.spyOn(dotenv, 'config').mockImplementation(makeMockDotenvConfig());
+  const consoleLogSpy = jest.spyOn(console, 'log');
+
+  config({ debug: true });
+  expect(consoleLogSpy).toBeCalledTimes(4);
+  expect(consoleLogSpy.mock.calls[0][0]).toEqual(
+    '[dotenv-cra][DEBUG] loading `.env.development.local`',
+  );
+  expect(consoleLogSpy.mock.calls[1][0]).toEqual(
+    '[dotenv-cra][DEBUG] loading `.env.development`',
+  );
+  expect(consoleLogSpy.mock.calls[2][0]).toEqual(
+    '[dotenv-cra][DEBUG] loading `.env.local`',
+  );
+  expect(consoleLogSpy.mock.calls[3][0]).toEqual(
+    '[dotenv-cra][DEBUG] loading `.env`',
+  );
 });
 
 test('should exclude .env.local when NODE_ENV set to test', () => {
