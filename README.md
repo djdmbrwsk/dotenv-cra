@@ -1,4 +1,8 @@
-[![codecov](https://codecov.io/gh/djdmbrwsk/dotenv-cra/branch/master/graph/badge.svg)](https://codecov.io/gh/djdmbrwsk/dotenv-cra)
+[![build](https://img.shields.io/github/workflow/status/djdmbrwsk/dotenv-cra/Lint%2C%20build%2C%20test/master)](https://github.com/djdmbrwsk/dotenv-cra/actions?query=branch%3Amaster+workflow%3A%22Lint%2C+build%2C+test%22)
+&nbsp;
+[![coverage](https://img.shields.io/codecov/c/gh/djdmbrwsk/dotenv-cra/master)](https://codecov.io/gh/djdmbrwsk/dotenv-cra/branch/master)
+&nbsp;
+[![npm](https://img.shields.io/npm/v/dotenv-cra)](https://www.npmjs.com/package/dotenv-cra)
 
 # dotenv-cra
 
