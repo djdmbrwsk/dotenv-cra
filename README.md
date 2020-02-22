@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/djdmbrwsk/dotenv-cra/branch/master/graph/badge.svg)](https://codecov.io/gh/djdmbrwsk/dotenv-cra)
+
 # dotenv-cra
 
 Create React App style [dotenv](https://github.com/motdotla/dotenv) support for
