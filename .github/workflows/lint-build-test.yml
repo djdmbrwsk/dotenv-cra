@@ -42,6 +42,18 @@ jobs:
       - run: npm test
         env:
           CI: true
+  coverage:
+    name: Upload coverage report with Node 12
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm ci
+      - run: npm test
+        env:
+          CI: true
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
