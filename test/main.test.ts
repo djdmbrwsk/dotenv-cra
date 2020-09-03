@@ -3,7 +3,7 @@ import { basename } from 'path';
 
 import dotenv, { DotenvConfigOutput } from 'dotenv';
 
-import { config, DotenvCraOptions } from '../src/main';
+import { DotenvCraOptions, config } from '../src/main';
 
 const originalNodeEnv = process.env.NODE_ENV;
 beforeEach(() => {
@@ -80,10 +80,10 @@ test('should log files loaded when `debug` supplied in options', () => {
     '[dotenv-cra][DEBUG] loading `.env.development.local`',
   );
   expect(consoleLogSpy.mock.calls[1][0]).toEqual(
-    '[dotenv-cra][DEBUG] loading `.env.development`',
+    '[dotenv-cra][DEBUG] loading `.env.local`',
   );
   expect(consoleLogSpy.mock.calls[2][0]).toEqual(
-    '[dotenv-cra][DEBUG] loading `.env.local`',
+    '[dotenv-cra][DEBUG] loading `.env.development`',
   );
   expect(consoleLogSpy.mock.calls[3][0]).toEqual(
     '[dotenv-cra][DEBUG] loading `.env`',
@@ -99,8 +99,8 @@ test('should exclude .env.local when NODE_ENV set to test', () => {
     .mockImplementation(makeMockDotenvConfig());
   config();
   expect(dotenvConfigSpy).toBeCalledTimes(3);
-  let thirdCallPath = dotenvConfigSpy.mock.calls[2][0]?.path;
-  expect(thirdCallPath?.endsWith('.env.local')).toEqual(false);
+  let secondCallPath = dotenvConfigSpy.mock.calls[1][0]?.path;
+  expect(secondCallPath?.endsWith('.env.local')).toEqual(false);
 
   process.env.NODE_ENV = 'development';
   dotenvConfigSpy.mockRestore();
@@ -109,8 +109,8 @@ test('should exclude .env.local when NODE_ENV set to test', () => {
     .mockImplementation(makeMockDotenvConfig());
   config();
   expect(dotenvConfigSpy).toBeCalledTimes(4);
-  thirdCallPath = dotenvConfigSpy.mock.calls[2][0]?.path;
-  expect(thirdCallPath?.endsWith('.env.local')).toEqual(true);
+  secondCallPath = dotenvConfigSpy.mock.calls[1][0]?.path;
+  expect(secondCallPath?.endsWith('.env.local')).toEqual(true);
 });
 
 test('should return error objects', () => {

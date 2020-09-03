@@ -61,7 +61,7 @@ PORT=3001
 
 Files on the left have more priority than files on the right:
 
-- `npm start`: `.env.development.local`, `.env.development`, `.env.local`, `.env`
+- `npm start`: `.env.development.local`, `.env.local`, `.env.development`, `.env`
 - `npm test`: `.env.test.local`, `.env.test`, `.env` (note `.env.local` is missing)
 
 [CRA Reference](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used)
