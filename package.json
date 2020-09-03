@@ -24,7 +24,7 @@
     "url": "https://github.com/djdmbrwsk/dotenv-cra.git"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "main": "build/main.js",
   "files": [
