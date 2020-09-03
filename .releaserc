@@ -11,6 +11,7 @@
       {
         "preset": "conventionalcommits",
         "presetConfig": {
+          "header": "Changelog",
           "types": [
             {
               "section": "Features",

@@ -2,9 +2,9 @@ import { existsSync } from 'fs';
 import { basename, resolve } from 'path';
 
 import {
-  config as dotenvConfig,
   DotenvConfigOptions,
   DotenvConfigOutput,
+  config as dotenvConfig,
 } from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
 
@@ -31,8 +31,8 @@ export function config(options?: DotenvCraOptions): DotenvConfigOutput {
   // https://github.com/facebook/create-react-app/blob/8b7b819b4b9e6ba457e011e92e33266690e26957/packages/react-scripts/config/env.js#L25-L34
   const dotenvFiles = [
     `${dotenvPath}.${env}.local`,
-    `${dotenvPath}.${env}`,
     process.env.NODE_ENV !== 'test' && `${dotenvPath}.local`,
+    `${dotenvPath}.${env}`,
     dotenvPath,
   ];
 
