@@ -5,8 +5,6 @@
 
 * Order of dotenv files loaded ([#97](https://github.com/djdmbrwsk/dotenv-cra/issues/97)) ([eb00be8](https://github.com/djdmbrwsk/dotenv-cra/commit/eb00be8fd432ea08b8e5811db32de856e5b8cca5))
 
-# Changelog
-
 ## [2.0.0-beta.1](https://github.com/djdmbrwsk/dotenv-cra/compare/v1.0.0...v2.0.0-beta.1) (2020-09-03)
 
 
