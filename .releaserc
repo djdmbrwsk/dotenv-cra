@@ -1,0 +1,37 @@
+{
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            {
+              "section": "Features",
+              "type": "feat"
+            },
+            {
+              "section": "Bug Fixes",
+              "type": "fix"
+            },
+            {
+              "hidden": true,
+              "section": "Chores",
+              "type": "chore"
+            },
+          ]
+        }
+      }
+    ],
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    "@semantic-release/git",
+    "@semantic-release/github"
+  ]
+}
