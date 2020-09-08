@@ -1,3 +1,10 @@
+### [2.0.1](https://github.com/djdmbrwsk/dotenv-cra/compare/v2.0.0...v2.0.1) (2020-09-08)
+
+
+### Bug Fixes
+
+* Move semantic-release dependencies to devDependencies ([#101](https://github.com/djdmbrwsk/dotenv-cra/issues/101)) ([57a5859](https://github.com/djdmbrwsk/dotenv-cra/commit/57a5859654fdc317085f47170957156815b258d6))
+
 ## [2.0.0](https://github.com/djdmbrwsk/dotenv-cra/compare/v1.0.0...v2.0.0) (2020-09-03)
 
 
