@@ -52,7 +52,7 @@
     "husky": "^4.2.1",
     "jest": "^25.5.3",
     "lint-staged": "^10.0.7",
-    "prettier": "2.1.1",
+    "prettier": "2.1.2",
     "rimraf": "^3.0.0",
     "semantic-release": "^17.1.1",
     "ts-jest": "^25.3.1",
