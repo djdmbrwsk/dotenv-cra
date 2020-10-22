@@ -16,6 +16,10 @@ export interface DotenvCraOptions extends DotenvConfigOptions {
 }
 
 export function config(options?: DotenvCraOptions): DotenvConfigOutput {
+  const log = (message: string): void => {
+    options?.debug && console.log(`[dotenv-cra][DEBUG] ${message}`);
+  };
+
   // Reference:
   // https://github.com/facebook/create-react-app/blob/8b7b819b4b9e6ba457e011e92e33266690e26957/packages/react-scripts/config/env.js#L18-L23
   if (!process.env.NODE_ENV) {
@@ -40,30 +44,31 @@ export function config(options?: DotenvCraOptions): DotenvConfigOutput {
   // https://github.com/facebook/create-react-app/blob/8b7b819b4b9e6ba457e011e92e33266690e26957/packages/react-scripts/config/env.js#L36-L49
   let parsed: { [name: string]: string } = {};
   for (const dotenvFile of dotenvFiles) {
-    if (dotenvFile && existsSync(dotenvFile)) {
-      if (options?.debug) {
-        log(`loading \`${basename(dotenvFile)}\``);
-      }
-
-      const result = dotenvExpand(
-        dotenvConfig({
-          debug: options?.debug,
-          encoding: options?.encoding,
-          path: dotenvFile,
-        }),
-      );
-
-      if (result.error) {
-        return result;
-      }
-      parsed = { ...result.parsed, ...parsed };
+    if (!dotenvFile) {
+      continue;
     }
+    if (!existsSync(dotenvFile)) {
+      log(`\`${basename(dotenvFile)}\` file not found`);
+      continue;
+    }
+
+    log(`loading \`${basename(dotenvFile)}\``);
+
+    const result = dotenvExpand(
+      dotenvConfig({
+        debug: options?.debug,
+        encoding: options?.encoding,
+        path: dotenvFile,
+      }),
+    );
+
+    if (result.error) {
+      return result;
+    }
+    parsed = { ...result.parsed, ...parsed };
   }
+
   return {
     parsed,
   };
-}
-
-function log(message: string): void {
-  console.log(`[dotenv-cra][DEBUG] ${message}`);
 }
