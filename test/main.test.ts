@@ -68,16 +68,20 @@ test('should allow custom .env path when `path` supplied in options', () => {
   expect(firstCallPath?.startsWith('/foo/bar/')).toEqual(true);
 });
 
-test('should log files loaded when `debug` supplied in options', () => {
+test('should log files loaded and file that do not exist when `debug` supplied in options', () => {
   process.env.NODE_ENV = 'development';
-  jest.spyOn(fs, 'existsSync').mockReturnValue(true);
+  jest
+    .spyOn(fs, 'existsSync')
+    .mockImplementation(
+      (path) => !path.toString().endsWith('.env.development.local'),
+    );
   jest.spyOn(dotenv, 'config').mockImplementation(makeMockDotenvConfig());
   const consoleLogSpy = jest.spyOn(console, 'log');
 
   config({ debug: true });
   expect(consoleLogSpy).toBeCalledTimes(4);
   expect(consoleLogSpy.mock.calls[0][0]).toEqual(
-    '[dotenv-cra][DEBUG] loading `.env.development.local`',
+    '[dotenv-cra][DEBUG] `.env.development.local` file not found',
   );
   expect(consoleLogSpy.mock.calls[1][0]).toEqual(
     '[dotenv-cra][DEBUG] loading `.env.local`',
