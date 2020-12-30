@@ -27,10 +27,10 @@ as early as possible. One difference is that `NODE_ENV` must be provided, so you
 may choose to default it in your application before calling `config()`.
 
 ```ts
-import dotenvCra from 'dotenv-cra';
+import { config } from 'dotenv-cra';
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-dotenvCra.config();
+config();
 ```
 
 At a minimum, create a base `.env` file in the root directory of your project
