@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+    rebase-strategy: 'disabled'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
