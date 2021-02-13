@@ -41,43 +41,15 @@
     "@semantic-release/github": "^7.1.1",
     "@semantic-release/npm": "^7.0.5",
     "@semantic-release/release-notes-generator": "^9.0.1",
-    "@types/jest": "^26.0.3",
-    "@types/node": "^12.12.47",
-    "@typescript-eslint/eslint-plugin": "^2.8.0",
-    "@typescript-eslint/parser": "^2.8.0",
     "conventional-changelog-conventionalcommits": "^4.4.0",
-    "eslint": "^6.7.1",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "husky": "^4.2.1",
-    "jest": "^25.5.3",
-    "lint-staged": "^10.0.7",
-    "prettier": "2.2.1",
-    "rimraf": "^3.0.0",
-    "semantic-release": "^17.1.1",
-    "ts-jest": "^25.3.1",
-    "typescript": "^4.0.2"
+    "nts-scripts": "^1.0.2",
+    "semantic-release": "^17.1.1"
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf ./build",
-    "format": "prettier --write \"**/*.{md,js,json,ts,yaml,yml}\"",
-    "lint": "eslint --max-warnings 0 \"{src,test}/**/*.ts\"",
-    "test": "jest --verbose --coverage"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.{md,js,json,ts,yaml,yml}": [
-      "prettier --write",
-      "git add"
-    ],
-    "{src,test}/**/*.ts": [
-      "eslint --fix --max-warnings 0",
-      "git add"
-    ]
+    "build": "nts-scripts build",
+    "clean": "nts-scripts clean",
+    "format": "nts-scripts format",
+    "lint": "nts-scripts lint",
+    "test": "nts-scripts test"
   }
 }
