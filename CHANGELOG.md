@@ -1,3 +1,10 @@
+## [2.1.0](https://github.com/djdmbrwsk/dotenv-cra/compare/v2.0.2...v2.1.0) (2021-06-19)
+
+
+### Features
+
+* Re-release dotenv upgrade ([#172](https://github.com/djdmbrwsk/dotenv-cra/issues/172)) ([fa60ff0](https://github.com/djdmbrwsk/dotenv-cra/commit/fa60ff02c199150c1dc7a25b27452987bb55c6cf)), closes [#167](https://github.com/djdmbrwsk/dotenv-cra/issues/167) [#167](https://github.com/djdmbrwsk/dotenv-cra/issues/167)
+
 ### [2.0.2](https://github.com/djdmbrwsk/dotenv-cra/compare/v2.0.1...v2.0.2) (2020-10-22)
 
 
