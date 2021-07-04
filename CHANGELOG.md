@@ -1,3 +1,10 @@
+## [2.2.0](https://github.com/djdmbrwsk/dotenv-cra/compare/v2.1.0...v2.2.0) (2021-07-04)
+
+
+### Features
+
+* Add prefix option ([#176](https://github.com/djdmbrwsk/dotenv-cra/issues/176)) ([4c402cc](https://github.com/djdmbrwsk/dotenv-cra/commit/4c402cc36645ca559eae12dd3c9416f57051c1fd))
+
 ## [2.1.0](https://github.com/djdmbrwsk/dotenv-cra/compare/v2.0.2...v2.1.0) (2021-06-19)
 
 
