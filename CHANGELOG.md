@@ -1,3 +1,14 @@
+## [3.0.0](https://github.com/djdmbrwsk/dotenv-cra/compare/v2.2.0...v3.0.0) (2021-07-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drop support for Node 10
+
+### Features
+
+* Drop support for Node 10 ([dee404b](https://github.com/djdmbrwsk/dotenv-cra/commit/dee404b589f74c86546ea01c89398d1c745a9545))
+
 ## [2.2.0](https://github.com/djdmbrwsk/dotenv-cra/compare/v2.1.0...v2.2.0) (2021-07-04)
 
 
