@@ -4,6 +4,7 @@ import { basename, resolve } from 'path';
 import {
   DotenvConfigOptions,
   DotenvConfigOutput,
+  DotenvParseOutput,
   config as dotenvConfig,
 } from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
@@ -13,6 +14,10 @@ export interface DotenvCraOptions extends DotenvConfigOptions {
    * You may specify a custom environment if NODE_ENV isn't sufficient.
    */
   env?: string;
+  /**
+   * You may specify a required prefix for your dotenv variables (ex. `REACT_APP_`).
+   */
+  prefix?: string;
 }
 
 export function config(options?: DotenvCraOptions): DotenvConfigOutput {
@@ -42,7 +47,7 @@ export function config(options?: DotenvCraOptions): DotenvConfigOutput {
 
   // Reference:
   // https://github.com/facebook/create-react-app/blob/8b7b819b4b9e6ba457e011e92e33266690e26957/packages/react-scripts/config/env.js#L36-L49
-  let parsed: { [name: string]: string } = {};
+  let parsed: DotenvParseOutput = {};
   for (const dotenvFile of dotenvFiles) {
     if (!dotenvFile) {
       continue;
@@ -66,6 +71,26 @@ export function config(options?: DotenvCraOptions): DotenvConfigOutput {
       return result;
     }
     parsed = { ...result.parsed, ...parsed };
+  }
+
+  // Reference:
+  // https://github.com/facebook/create-react-app/blob/8b7b819b4b9e6ba457e011e92e33266690e26957/packages/react-scripts/config/env.js#L72-L89
+  if (options?.prefix) {
+    const prefixRegExp = new RegExp(`^${options.prefix}`, 'i');
+    parsed = Object.keys(parsed)
+      .filter((key) => {
+        const match = prefixRegExp.test(key);
+        log(
+          `Prefix for key \`${key}\` ${
+            match ? 'matches' : 'does not match'
+          } \`${options.prefix}\``,
+        );
+        return match;
+      })
+      .reduce((obj, key) => {
+        obj[key] = parsed[key];
+        return obj;
+      }, {} as DotenvParseOutput);
   }
 
   return {

@@ -117,6 +117,25 @@ test('should exclude .env.local when NODE_ENV set to test', () => {
   expect(secondCallPath?.endsWith('.env.local')).toEqual(true);
 });
 
+test('should filter out values when provided prefix does not match', () => {
+  process.env.NODE_ENV = 'development';
+  jest.spyOn(fs, 'existsSync').mockReturnValue(true);
+  jest.spyOn(dotenv, 'config').mockImplementation(
+    makeMockDotenvConfig({
+      '.env.local': { parsed: { MY_APP_SETTING: 'FOO' } },
+      '.env': { parsed: { NOT_MY_SETTING: 'BAR', MY_APP_SETTING_2: 'BAZ' } },
+    }),
+  );
+
+  const output = config({ prefix: 'MY_APP_' });
+  expect(output.error).toBeFalsy();
+  expect(output.parsed).toBeTruthy();
+  expect(output.parsed).toEqual({
+    MY_APP_SETTING: 'FOO',
+    MY_APP_SETTING_2: 'BAZ',
+  });
+});
+
 test('should return error objects', () => {
   jest.spyOn(fs, 'existsSync').mockReturnValue(true);
   jest.spyOn(dotenv, 'config').mockReturnValue({ error: new Error('foobar') });

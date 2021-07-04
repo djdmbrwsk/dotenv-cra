@@ -80,6 +80,18 @@ files you load on `NODE_ENV`. For example, you may want `NODE_ENV` set to
 dotenvCra.config({ env: process.env.AWS_ENV });
 ```
 
+### Prefix
+
+Default: none
+
+You may specify a required prefix for your dotenv variables. For example, you
+may want to prefix your variables with `WEB_API_` to ensure there aren't any
+collisions with other environment variables.
+
+```ts
+dotenvCra.config({ prefix: 'WEB_API_' });
+```
+
 ### Path
 
 Default: `path.resolve(process.cwd(), '.env')`
