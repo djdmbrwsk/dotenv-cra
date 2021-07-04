@@ -4,23 +4,23 @@ on: [push]
 
 jobs:
   lint:
-    name: Lint with Node 14
+    name: Lint with Node 16
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - run: npm ci
       - run: npm run lint
   build:
-    name: Build with Node 14
+    name: Build with Node 16
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - run: npm ci
       - run: npm run build
   test:
@@ -28,13 +28,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node_version: ['14', '12', '10']
+        node_version: ['16', '14', '12']
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - run: npm ci
       - uses: actions/setup-node@v1
         with:
@@ -43,13 +43,13 @@ jobs:
         env:
           CI: true
   coverage:
-    name: Upload coverage report with Node 14
+    name: Upload coverage report with Node 16
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - run: npm ci
       - run: npm test
         env:

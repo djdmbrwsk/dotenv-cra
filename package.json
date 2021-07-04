@@ -24,7 +24,7 @@
     "url": "https://github.com/djdmbrwsk/dotenv-cra.git"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "main": "build/main.js",
   "files": [
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@djdmbrwsk/common-semantic-release": "^1.0.2",
-    "nts-scripts": "^1.0.2"
+    "nts-scripts": "^3.4.0"
   },
   "scripts": {
     "build": "nts-scripts build",
