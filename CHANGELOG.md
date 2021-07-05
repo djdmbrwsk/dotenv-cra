@@ -1,3 +1,10 @@
+### [3.0.1](https://github.com/djdmbrwsk/dotenv-cra/compare/v3.0.0...v3.0.1) (2021-07-05)
+
+
+### Bug Fixes
+
+* Add NODE_ENV warning to README ([2786355](https://github.com/djdmbrwsk/dotenv-cra/commit/278635518101041481480fff0f388c267dbdddd4))
+
 ## [3.0.0](https://github.com/djdmbrwsk/dotenv-cra/compare/v2.2.0...v3.0.0) (2021-07-04)
 
 
