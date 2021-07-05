@@ -23,8 +23,11 @@ npm i dotenv-cra
 ## Usage
 
 Not much new here. As with dotenv, import/require `dotenv-cra` and configure it
-as early as possible. One difference is that `NODE_ENV` must be provided, so you
-may choose to default it in your application before calling `config()`.
+as early as possible. This ensures that any modules reading values from
+`process.env` can retrieve the expected values.
+
+**⚠️ Warning:** The `NODE_ENV` variable must be set, so you may choose to default it
+in your application before calling `config()`.
 
 ```ts
 import { config } from 'dotenv-cra';
