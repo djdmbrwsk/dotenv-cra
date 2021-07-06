@@ -36,6 +36,12 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 config();
 ```
 
+_Note_ When using NodeJS v15 or higher you can use [Logical Nullish Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment) as well:
+
+```ts
+process.env.NODE_ENV ??= 'development';
+```
+
 At a minimum, create a base `.env` file in the root directory of your project
 with `KEY=value` entires on each line. However, if that's all you ever do, you
 don't need this library 😉. To see the real value of dotenv-cra, try creating a
