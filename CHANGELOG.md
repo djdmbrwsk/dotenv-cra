@@ -1,3 +1,10 @@
+### [3.0.2](https://github.com/djdmbrwsk/dotenv-cra/compare/v3.0.1...v3.0.2) (2021-09-01)
+
+
+### Bug Fixes
+
+* Run npm audit fix ([#179](https://github.com/djdmbrwsk/dotenv-cra/issues/179)) ([63c0ad3](https://github.com/djdmbrwsk/dotenv-cra/commit/63c0ad35a7f58bba05a94e01bf7f03dd54cb6b42))
+
 ### [3.0.1](https://github.com/djdmbrwsk/dotenv-cra/compare/v3.0.0...v3.0.1) (2021-07-05)
 
 
