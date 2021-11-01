@@ -35,7 +35,7 @@
     "dotenv-expand": "^5.1.0"
   },
   "devDependencies": {
-    "@djdmbrwsk/common-semantic-release": "^1.0.2",
+    "@djdmbrwsk/common-semantic-release": "^2.0.0",
     "nts-scripts": "^3.4.0"
   },
   "scripts": {
