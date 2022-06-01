@@ -31,7 +31,7 @@
     "build"
   ],
   "dependencies": {
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.1",
     "dotenv-expand": "^5.1.0"
   },
   "devDependencies": {
