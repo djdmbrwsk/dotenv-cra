@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "dotenv": "^10.0.0",
-    "dotenv-expand": "^5.1.0"
+    "dotenv-expand": "^9.0.0"
   },
   "devDependencies": {
     "@djdmbrwsk/common-semantic-release": "^1.0.2",
