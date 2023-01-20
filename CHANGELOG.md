@@ -1,3 +1,10 @@
+### [3.0.3](https://github.com/djdmbrwsk/dotenv-cra/compare/v3.0.2...v3.0.3) (2023-01-20)
+
+
+### Bug Fixes
+
+* Update build badge ([d2d52b9](https://github.com/djdmbrwsk/dotenv-cra/commit/d2d52b93a61cee22311c5d67f1b577dc038750a4))
+
 ### [3.0.2](https://github.com/djdmbrwsk/dotenv-cra/compare/v3.0.1...v3.0.2) (2021-09-01)
 
 
